@@ -39,6 +39,16 @@ UniformClearing <- CommitBatch settlement -> CommitBatchRouter -> v4 PoolManager
 
 Each batch accepts at most two owners and requires opposite directions. Both orders must be present, revealed, and eligible or the batch is cancelled. Matched flow uses the captured mock `X18` reference price; the residual uses current v4 pool execution. Outputs are claimed in separate transactions.
 
+## Partner Integrations
+
+| Partner | Integration | Code and evidence |
+| --- | --- | --- |
+| Unichain | The settlement stack is deployed on Unichain Sepolia (`1301`). `CommitBatch` escrows, clears, and credits the batch there; the residual path calls the deployed Uniswap v4 PoolManager on the same chain. | [`CommitBatch.sol`](./src/core/CommitBatch.sol), [`DeployUnichainDemo.s.sol`](./script/DeployUnichainDemo.s.sol), and the [Unichain manifest](./deployments/unichain-sepolia.json) |
+| Uniswap v4 on Unichain | Only the calculated imbalance is routed through v4. `CommitBatchRouter` uses PoolManager flash accounting and `CommitBatchHook` validates a single-use `beforeSwap` authorization for the exact residual. | [`CommitBatchRouter.sol`](./src/v4/CommitBatchRouter.sol), [`CommitBatchHook.sol`](./src/hook/CommitBatchHook.sol), and the [live pool configuration](./docs/live-testnet.md#unichain-sepolia) |
+| Reactive Network | `CommitBatchRSC` subscribes to `SettlementRequested` and emits the callback request. The destination authenticates the Callback Proxy, ReactVM ID, batch phase, and callback nonce before settlement. | [`CommitBatchRSC.sol`](./src/reactive/CommitBatchRSC.sol), [`ConfigureReactiveIntegration.s.sol`](./script/ConfigureReactiveIntegration.s.sol), and the [Reactive deployment evidence](./docs/live-testnet.md#reactive-lasna) |
+
+These are live testnet integrations only. The tokens and reference-price source are mocks; see [live testnet evidence](./docs/live-testnet.md) and [threat model](./docs/threat-model.md) for the exact scope and limitations.
+
 ## v4 And Reactive
 
 Uniswap v4 is deliberately the residual path, not the matching engine. Opposing inventory crosses inside `CommitBatch`; only the computed imbalance reaches the fixed router/pool, where the hook verifies and atomically consumes a single-use authorization before the swap.
