@@ -1,0 +1,14 @@
+{
+  "network": "Unichain Sepolia + Reactive Lasna",
+  "chainId": 1301,
+  "status": "live",
+  "contracts": {
+    "commitBatch": "0x7401886c04AE20a663a148F42E63378616DE70D4",
+    "commitBatchHook": "0x422666fFEBf3E8258998f48fd494bE80a7ba8080",
+    "commitBatchRouter": "0x3970DA96BDb86Fca28A707D312CE2e15973Af0CF",
+    "commitBatchRSC": "0x81E2b89a3aBC0E54FF98425149b864Cf1a21f788",
+    "poolManager": "0x9cB26A7183B2F4515945Dc52CB4195B0d2D06C95"
+  },
+  "explorerBaseUrl": "https://sepolia.uniscan.xyz/address/",
+  "note": "Live testnet deployment. Mock tokens are permissionlessly mintable and are for demonstration only."
+}
