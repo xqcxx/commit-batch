@@ -1,0 +1,12 @@
+.env
+.env-fsh
+.env.bkp
+env.share
+demo-operator.env
+demo-operator.fish
+cache/
+out/
+broadcast/
+deployments/*.local.json
+frontend/dist/
+frontend/node_modules/
