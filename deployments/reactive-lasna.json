@@ -1,0 +1,8 @@
+{
+  "status": "live-testnet",
+  "rsc": "0x81E2b89a3aBC0E54FF98425149b864Cf1a21f788",
+  "rvmId": "0x599282387bcec523E9D10711eE8B396D7644ce13",
+  "originChainId": 1301,
+  "destinationChainId": 1301,
+  "deploymentTransaction": "0xd514414400e142f698b9895347bb0b7bd52632758cf2d8fa4f85837b811ea1f9"
+}

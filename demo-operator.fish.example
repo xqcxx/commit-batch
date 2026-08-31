@@ -1,0 +1,17 @@
+# Restricted testnet-only operator configuration. Never use production wallets or assets.
+set -gx UNICHAIN_SEPOLIA_RPC_URL https://sepolia.unichain.org
+set -gx COMMIT_BATCH 0x7401886c04AE20a663a148F42E63378616DE70D4
+set -gx DEMO_WETH 0x35809A884ddBbEFcc8A97C1565854b81E6bD11Ec
+set -gx DEMO_USDC 0xd4446d09F2Ee3B836f12481760C1aeB87709a4f4
+
+# Use three separately funded, disposable Unichain Sepolia wallets.
+set -gx OPERATOR_PRIVATE_KEY 0x...
+set -gx ALICE_PRIVATE_KEY 0x...
+set -gx BOB_PRIVATE_KEY 0x...
+set -gx ALICE_SALT 0x...
+set -gx BOB_SALT 0x...
+
+# Leave empty until setup completes. Set it from nextBatchId before reveal.
+set -gx DEMO_BATCH_ID
+set -gx DEMO_COMMIT_DURATION 180
+set -gx DEMO_REVEAL_DURATION 180

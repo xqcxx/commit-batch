@@ -1,0 +1,10 @@
+{
+  "name": "Alice 10 WETH / Bob 14,000 USDC",
+  "referencePriceX18": "2000000000000000000000",
+  "aliceWethIn": "10000000000000000000",
+  "bobUsdcIn": "14000000000",
+  "matchedWeth": "7000000000000000000",
+  "matchedUsdc": "14000000000",
+  "residualWeth": "3000000000000000000",
+  "normalizedAmmReductionBps": 8235
+}
